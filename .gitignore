@@ -1,0 +1,4 @@
+podcatcher
+*.o
+obj
+.vscode
