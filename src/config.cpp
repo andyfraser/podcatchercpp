@@ -3,20 +3,20 @@
 
 Config::Config()
 {
-    this->test = 0;
+    filename = "";
 }
 
 Config::Config(char* argv[])
 {
-    test = atoi(argv[1]);
+    filename = argv[1];
 }
 
-int Config::getTest()
+std::string Config::getFilename()
 {
-    return test;
+    return filename;
 }
 
-void Config::setTest(int t)
+void Config::setFilename(std::string fn)
 {
-    test = t;
+    filename = fn;
 }

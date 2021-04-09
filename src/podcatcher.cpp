@@ -9,7 +9,7 @@ Podcatcher::Podcatcher(Config* c)
 void Podcatcher::run()
 {
     std::cout << "Podcatcher running" << std::endl;
-    std::cout << "Value = " << config->getTest() << std::endl;
+    std::cout << "Value = " << config->getFilename() << std::endl;
 }
 
 Podcatcher::~Podcatcher()

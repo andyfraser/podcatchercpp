@@ -1,15 +1,17 @@
 #ifndef _config
 #define _config
 
+#include <string>
+
 class Config {
     protected:
-        int test;
+        std::string filename;
     
     public:
         Config();
         Config(char* argv[]);
-        int getTest();
-        void setTest(int t);
+        std::string getFilename();
+        void setFilename(std::string filename);
 };
 
 #endif

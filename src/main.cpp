@@ -10,11 +10,9 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    Podcatcher* pc = new Podcatcher(new Config(argv));
+    Podcatcher pc(new Config(argv));
 
-    pc->run();
-
-    delete pc;
+    pc.run();
 
     return 0;
 }
