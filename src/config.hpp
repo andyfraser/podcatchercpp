@@ -3,15 +3,17 @@
 
 #include <string>
 
+using namespace std;
+
 class Config {
     protected:
-        std::string filename;
+        string filename;
     
     public:
         Config();
         Config(char* argv[]);
-        std::string getFilename();
-        void setFilename(std::string filename);
+        string getFilename();
+        void setFilename(string filename);
 };
 
 #endif

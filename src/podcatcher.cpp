@@ -8,12 +8,12 @@ Podcatcher::Podcatcher(Config* c)
 
 void Podcatcher::run()
 {
-    std::cout << "Podcatcher running" << std::endl;
-    std::cout << "Value = " << config->getFilename() << std::endl;
+    cout << "Podcatcher running" << endl;
+    cout << "Value = " << config->getFilename() << endl;
 }
 
 Podcatcher::~Podcatcher()
 {
     delete config;
-    std::cout << "Podcatcher stopping" << std::endl;
+    cout << "Podcatcher stopping" << endl;
 }

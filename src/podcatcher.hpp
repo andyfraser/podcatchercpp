@@ -3,6 +3,8 @@
 
 #include "config.hpp"
 
+using namespace std;
+
 class Podcatcher
 {
     protected:

@@ -2,11 +2,13 @@
 #include "config.hpp"
 #include "podcatcher.hpp"
 
+using namespace std;
+
 int main(int argc, char* argv[])
 {
     if(argc <= 1)
     {
-        std::cout << "Not enough arguments" << std::endl;
+        cout << "Not enough arguments" << endl;
         return 1;
     }
 

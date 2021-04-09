@@ -11,12 +11,12 @@ Config::Config(char* argv[])
     filename = argv[1];
 }
 
-std::string Config::getFilename()
+string Config::getFilename()
 {
     return filename;
 }
 
-void Config::setFilename(std::string fn)
+void Config::setFilename(string fn)
 {
     filename = fn;
 }
