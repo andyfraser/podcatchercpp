@@ -2,6 +2,7 @@
 #define _podcatcher
 
 #include "config.hpp"
+#include "exceptions.hpp"
 
 using namespace std;
 
@@ -11,8 +12,11 @@ class Podcatcher
         Config* config;
 
     public:
-        Podcatcher(Config* config);
+        Podcatcher();
+        Podcatcher(Config* c);
         ~Podcatcher();
+        void setConfig(Config* c);
+        Config* getConfig();
         void run();
 };
 

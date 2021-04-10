@@ -12,9 +12,19 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    Podcatcher pc(new Config(argv));
-
-    pc.run();
+    try
+    {
+        Podcatcher pc(new Config(argv));
+        pc.run();
+    }
+    catch(const podcatcher_error& e)
+    {
+        cerr << e.what() << endl;
+    }
+    catch(const exception& e)
+    {
+        cerr << "Error: " << e.what() << endl;
+    }
 
     return 0;
 }

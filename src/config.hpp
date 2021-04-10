@@ -13,7 +13,7 @@ class Config {
         Config();
         Config(char* argv[]);
         string getFilename();
-        void setFilename(string filename);
+        void setFilename(const string filename);
 };
 
 #endif

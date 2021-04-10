@@ -16,7 +16,7 @@ string Config::getFilename()
     return filename;
 }
 
-void Config::setFilename(string fn)
+void Config::setFilename(const string fn)
 {
     filename = fn;
 }
