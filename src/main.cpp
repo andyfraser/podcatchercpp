@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
     if(argc <= 1)
     {
-        cout << "Not enough arguments" << endl;
+        cout << "Usgae: podcatcher FILENAME" << endl;
         return 1;
     }
 

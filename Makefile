@@ -1,3 +1,5 @@
+EXECUTABLE = podcatcher
+
 SRCDIR = src
 OBJDIR = obj
 
@@ -8,13 +10,17 @@ CC = /usr/bin/g++
 CPPFLAGS = -Wall -O3
 LDFLAGS =
 
-podcatcher: $(OBJFILES)
+debug: CPPFLAGS = -Wall -g
+debug: podcatcher
+
+$(EXECUTABLE): $(OBJFILES)
 	$(CC) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CC) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f *.o $(OBJDIR)/*.o podcatcher
+	rm -f *.o $(OBJDIR)/*.o $(EXECUTABLE)
 
-all: clean podcatcher
+release: clean $(EXECUTABLE)
+	strip $(EXECUTABLE)
