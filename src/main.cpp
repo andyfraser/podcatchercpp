@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
     if(argc <= 1)
     {
-        cout << "Usgae: podcatcher FILENAME" << endl;
+        cout << "Usage: podcatcher FILENAME" << endl;
         return 1;
     }
 

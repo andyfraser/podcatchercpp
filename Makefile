@@ -24,3 +24,5 @@ clean:
 
 release: clean $(EXECUTABLE)
 	strip $(EXECUTABLE)
+
+all: clean debug
