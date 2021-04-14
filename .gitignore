@@ -1,3 +1,4 @@
 podcatcher
 *.o
 .vscode
+podcatcher.code-workspace
