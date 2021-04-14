@@ -1,6 +1,8 @@
 #ifndef _config
 #define _config
 
+#define CONFIG_FILENAME "~/.config/podcatcher.conf"
+
 #include <string>
 
 using namespace std;
@@ -8,12 +10,14 @@ using namespace std;
 class Config {
     protected:
         string filename;
+        void init(char**);
     
     public:
         Config();
-        Config(char* argv[]);
+        Config(char**);
+        ~Config();
         string getFilename();
-        void setFilename(const string filename);
+        void setFilename(const string);
 };
 
 #endif

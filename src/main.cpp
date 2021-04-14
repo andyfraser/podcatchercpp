@@ -6,15 +6,9 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    if(argc <= 1)
-    {
-        cout << "Usage: podcatcher FILENAME" << endl;
-        return 1;
-    }
-
     try
     {
-        Podcatcher pc(new Config(argv));
+        Podcatcher pc(new Config(argc > 1 ? argv : NULL));
         pc.run();
     }
     catch(const podcatcher_error& e)

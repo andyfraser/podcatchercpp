@@ -13,9 +13,9 @@ class Podcatcher
 
     public:
         Podcatcher();
-        Podcatcher(Config* c);
+        Podcatcher(Config*);
         ~Podcatcher();
-        void setConfig(Config* c);
+        void setConfig(Config*);
         Config* getConfig();
         void run();
 };

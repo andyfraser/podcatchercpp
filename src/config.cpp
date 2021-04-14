@@ -3,12 +3,24 @@
 
 Config::Config()
 {
-    filename = "";
+    init(NULL);
 }
 
 Config::Config(char* argv[])
 {
-    filename = argv[1];
+    init(argv);
+}
+
+void Config::init(char* argv[])
+{
+    if(argv)
+    {
+        filename = argv[1];
+    }
+    else
+    {
+        filename = CONFIG_FILENAME;
+    }
 }
 
 string Config::getFilename()
@@ -19,4 +31,9 @@ string Config::getFilename()
 void Config::setFilename(const string fn)
 {
     filename = fn;
+}
+
+Config::~Config()
+{
+    cout << "Unloading " << filename << endl;
 }
