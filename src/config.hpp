@@ -15,6 +15,7 @@ class Config {
     public:
         Config();
         Config(char**);
+        Config(const string);
         ~Config();
         string getFilename();
         void setFilename(const string);

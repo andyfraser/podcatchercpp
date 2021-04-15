@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "podcatcher.hpp"
 
 Podcatcher::Podcatcher()
@@ -6,19 +7,15 @@ Podcatcher::Podcatcher()
     config = nullptr;
 }
 
-Podcatcher::Podcatcher(Config* c)
+void Podcatcher::setConfig(unique_ptr<Config> c)
 {
-    config = c;
+    config.reset(nullptr);
+    config = move(c);
 }
 
-void Podcatcher::setConfig(Config* c)
+unique_ptr<Config> Podcatcher::getConfig()
 {
-    config = c;
-}
-
-Config* Podcatcher::getConfig()
-{
-    return config;
+    return move(config);
 }
 
 void Podcatcher::run()
@@ -36,8 +33,7 @@ Podcatcher::~Podcatcher()
 {
     if(config != nullptr)
     {
-        delete config;
-        config = nullptr;
+        config.reset(nullptr);
     }
 
     cout << "Podcatcher stopping" << endl;

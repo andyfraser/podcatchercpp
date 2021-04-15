@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "config.hpp"
 #include "podcatcher.hpp"
 
@@ -8,7 +9,7 @@ int main(int argc, char* argv[])
 {
     try
     {
-        Podcatcher pc(new Config(argc > 1 ? argv : NULL));
+        Podcatcher pc(make_unique<Config>(argc > 1 ? argv : NULL));
         pc.run();
     }
     catch(const podcatcher_error& e)

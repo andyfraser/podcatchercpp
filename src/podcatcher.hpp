@@ -1,6 +1,7 @@
 #ifndef _podcatcher
 #define _podcatcher
 
+#include <memory>
 #include "config.hpp"
 #include "exceptions.hpp"
 
@@ -9,14 +10,14 @@ using namespace std;
 class Podcatcher
 {
     protected:
-        Config* config;
+        unique_ptr<Config> config;
 
     public:
         Podcatcher();
-        Podcatcher(Config*);
+        Podcatcher(unique_ptr<Config> c): config(move(c)) {};
         ~Podcatcher();
-        void setConfig(Config*);
-        Config* getConfig();
+        void setConfig(unique_ptr<Config>);
+        unique_ptr<Config> getConfig();
         void run();
 };
 

@@ -11,6 +11,11 @@ Config::Config(char* argv[])
     init(argv);
 }
 
+Config::Config(const string fn)
+{
+    filename = fn;
+}
+
 void Config::init(char* argv[])
 {
     if(argv)
