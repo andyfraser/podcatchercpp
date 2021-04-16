@@ -9,7 +9,6 @@ Podcatcher::Podcatcher()
 
 void Podcatcher::setConfig(unique_ptr<Config> c)
 {
-    config.reset(nullptr);
     config = move(c);
 }
 
@@ -20,9 +19,9 @@ unique_ptr<Config> Podcatcher::getConfig()
 
 void Podcatcher::run()
 {
-    if(config == nullptr)
+    if(!config)
     {
-        throw podcatcher_error("No config provided");
+        throw podcatcher_error("Podcatcher: No config provided");
     }
 
     cout << "Podcatcher running" << endl;
@@ -31,7 +30,7 @@ void Podcatcher::run()
 
 Podcatcher::~Podcatcher()
 {
-    if(config != nullptr)
+    if(config)
     {
         config.reset(nullptr);
     }
