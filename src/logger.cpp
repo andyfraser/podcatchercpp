@@ -6,16 +6,64 @@ Logger::Logger()
     level = LogLevel::INFO;
 }
 
+Logger::Logger(const string fn)
+{
+    filename = fn;
+}
+
 Logger::~Logger()
 {
 }
 
-void Logger::setLevel(LogLevel ll)
+void Logger::setLevel(const LogLevel ll)
 {
     level = ll;
 }
 
-void Logger::log(LogLevel ll, string msg)
+const LogLevel Logger::getLevel()
+{
+    return level;
+}
+
+const string Logger::getLevelAsString()
+{
+    string msg { "" };
+    switch(level)
+    {
+        case LogLevel::DEBUG:
+            msg = "Debug";
+            break;
+        case LogLevel::INFO:
+            msg = "Info";
+            break;
+        case LogLevel::WARNING:
+            msg = "Warning";
+            break;
+        case LogLevel::ERROR:
+            msg = "Error";
+            break;
+        case LogLevel::CRITICAL:
+            msg = "Critical";
+            break;
+        default:
+            msg = "No Level";
+            break;
+    }
+
+    return msg;
+}
+
+void Logger::setFilename(const string fn)
+{
+    filename = fn;
+}
+
+const string Logger::getFilename()
+{
+    return filename;
+}
+
+void Logger::log(const LogLevel ll, const string msg)
 {
     if(ll >= level)
     {
