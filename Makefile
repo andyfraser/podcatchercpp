@@ -10,7 +10,7 @@ CC = /usr/bin/g++
 CPPFLAGS = -Wall -O3
 LDFLAGS =
 
-debug: CPPFLAGS = -Wall -g
+debug: CPPFLAGS = -Wall -g -DDEBUG_SETTINGS
 debug: podcatcher
 
 $(EXECUTABLE): $(OBJFILES)

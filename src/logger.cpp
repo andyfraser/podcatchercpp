@@ -3,7 +3,6 @@
 
 Logger::Logger()
 {
-    level = LogLevel::INFO;
 }
 
 Logger::Logger(const string fn)

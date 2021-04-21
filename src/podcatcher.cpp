@@ -17,7 +17,6 @@ Podcatcher::Podcatcher(unique_ptr<Config> c)
 void Podcatcher::init()
 {
     logger = make_unique<Logger>();
-    logger->setLevel(LogLevel::DEBUG);
     logger->log(LogLevel::DEBUG, "Logger filename = '" + logger->getFilename() + "'");
 }
 

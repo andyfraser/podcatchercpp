@@ -10,7 +10,11 @@ enum class LogLevel {DEBUG, INFO, WARNING, ERROR, CRITICAL};
 class Logger
 {
     protected:
+    #ifdef DEBUG_SETTINGS
+        LogLevel level { LogLevel::DEBUG };
+    #else
         LogLevel level { LogLevel::INFO };
+    #endif
         string filename { "" };
     public:
         Logger();
