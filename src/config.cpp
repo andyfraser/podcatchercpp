@@ -40,5 +40,4 @@ void Config::setFilename(const string fn)
 
 Config::~Config()
 {
-    cout << "Unloading " << filename << endl;
 }

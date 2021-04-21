@@ -18,4 +18,16 @@ class podcatcher_error : public exception
         }
 };
 
+class logger_error : public exception
+{
+    private:
+        const string message;
+    public:
+        logger_error(const string msg): message(msg) { }
+        const char* what() const throw()
+        {
+            return message.c_str();
+        }
+};
+
 #endif

@@ -5,6 +5,19 @@
 Podcatcher::Podcatcher()
 {
     config = nullptr;
+    init();
+}
+
+Podcatcher::Podcatcher(unique_ptr<Config> c)
+{
+    config = move(c);
+    init();
+}
+
+void Podcatcher::init()
+{
+    logger = make_unique<Logger>();
+    logger->setLevel(LogLevel::DEBUG);
 }
 
 void Podcatcher::setConfig(unique_ptr<Config> c)
@@ -24,16 +37,23 @@ void Podcatcher::run()
         throw podcatcher_error("Podcatcher: No config provided");
     }
 
-    cout << "Podcatcher running" << endl;
-    cout << "Value = " << config->getFilename() << endl;
+    logger->log(LogLevel::INFO, "Podcatcher running");
+    logger->log(LogLevel::DEBUG, "Value = " + config->getFilename());
 }
 
 Podcatcher::~Podcatcher()
 {
+    logger->log(LogLevel::INFO, "Podcatcher stopping");
+
     if(config)
     {
+        logger->log(LogLevel::DEBUG, "Unloading config file " + config->getFilename());
         config.reset(nullptr);
     }
 
-    cout << "Podcatcher stopping" << endl;
+    if(logger)
+    {
+        logger->log(LogLevel::DEBUG, "Unloading logger");
+        logger.reset(nullptr);
+    }
 }

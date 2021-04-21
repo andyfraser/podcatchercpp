@@ -16,6 +16,10 @@ int main(int argc, char* argv[])
     {
         cerr << e.what() << endl;
     }
+    catch(const logger_error& e)
+    {
+        cerr << "Logger error: " << e.what() << endl;
+    }
     catch(const exception& e)
     {
         cerr << "Error: " << e.what() << endl;
