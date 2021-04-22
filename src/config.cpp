@@ -11,11 +11,11 @@ Config::Config(const vector<string>& args, shared_ptr<Logger> l)
 
     for(size_t i = 0; i < args.size(); ++i)
     {
-        logger->log(LogLevel::DEBUG, "\t" + args[i]);
+        logger->log(LogLevel::DEBUG, "    " + args[i]);
 
         if(args[i] == "-l")
         {
-            logger->log(LogLevel::DEBUG, "\t\tList only turned on.");
+            logger->log(LogLevel::DEBUG, "        List only turned on.");
             listonly = true;
         }
 
@@ -26,7 +26,7 @@ Config::Config(const vector<string>& args, shared_ptr<Logger> l)
 
             if(file)
             {
-                logger->log(LogLevel::DEBUG, "\t\tChange filename to " + args[i]);
+                logger->log(LogLevel::DEBUG, "        Change filename to " + args[i]);
                 filename = args[i];
             }
             else
@@ -35,16 +35,6 @@ Config::Config(const vector<string>& args, shared_ptr<Logger> l)
             }
         }
     }
-}
-
-string Config::getFilename()
-{
-    return filename;
-}
-
-void Config::setFilename(const string fn)
-{
-    filename = fn;
 }
 
 Config::~Config()

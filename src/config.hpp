@@ -13,14 +13,12 @@ using namespace std;
 class Config {
     protected:
         shared_ptr<Logger> logger;
-        string filename { CONFIG_FILENAME };
-        bool listonly { false };
     
     public:
         Config(const vector<string>&, shared_ptr<Logger>);
         ~Config();
-        string getFilename();
-        void setFilename(const string);
+        string filename { CONFIG_FILENAME };
+        bool listonly { false };
 };
 
 #endif

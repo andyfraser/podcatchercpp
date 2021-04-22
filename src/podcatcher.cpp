@@ -8,16 +8,6 @@ Podcatcher::Podcatcher(const vector<string>& args)
     config = make_unique<Config>(args, logger);
 }
 
-void Podcatcher::setConfig(unique_ptr<Config> c)
-{
-    config = move(c);
-}
-
-unique_ptr<Config> Podcatcher::getConfig()
-{
-    return move(config);
-}
-
 void Podcatcher::run()
 {
     if(!config)
@@ -26,7 +16,7 @@ void Podcatcher::run()
     }
 
     logger->log(LogLevel::INFO, "Podcatcher running");
-    logger->log(LogLevel::DEBUG, "Value = " + config->getFilename());
+    logger->log(LogLevel::DEBUG, "Value = " + config->filename);
 }
 
 Podcatcher::~Podcatcher()
