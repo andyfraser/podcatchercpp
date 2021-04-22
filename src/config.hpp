@@ -14,6 +14,7 @@ class Config {
     protected:
         shared_ptr<Logger> logger;
         string filename { CONFIG_FILENAME };
+        bool listonly { false };
     
     public:
         Config(const vector<string>&, shared_ptr<Logger>);
