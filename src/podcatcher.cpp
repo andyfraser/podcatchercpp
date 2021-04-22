@@ -2,22 +2,10 @@
 #include <memory>
 #include "podcatcher.hpp"
 
-Podcatcher::Podcatcher()
+Podcatcher::Podcatcher(const vector<string>& args)
 {
-    config = nullptr;
-    init();
-}
-
-Podcatcher::Podcatcher(unique_ptr<Config> c)
-{
-    config = move(c);
-    init();
-}
-
-void Podcatcher::init()
-{
-    logger = make_unique<Logger>();
-    logger->log(LogLevel::DEBUG, "Logger filename = '" + logger->getFilename() + "'");
+    logger = make_shared<Logger>();
+    config = make_unique<Config>(args, logger);
 }
 
 void Podcatcher::setConfig(unique_ptr<Config> c)
@@ -47,13 +35,11 @@ Podcatcher::~Podcatcher()
 
     if(config)
     {
-        logger->log(LogLevel::DEBUG, "Unloading config file " + config->getFilename());
         config.reset(nullptr);
     }
 
     if(logger)
     {
-        logger->log(LogLevel::DEBUG, "Unloading logger");
-        logger.reset(nullptr);
+        logger.reset();
     }
 }

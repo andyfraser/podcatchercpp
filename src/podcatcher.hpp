@@ -2,6 +2,7 @@
 #define _podcatcher
 
 #include <memory>
+#include <vector>
 #include "config.hpp"
 #include "logger.hpp"
 #include "exceptions.hpp"
@@ -12,12 +13,10 @@ class Podcatcher
 {
     protected:
         unique_ptr<Config> config;
-        unique_ptr<Logger> logger;
-        void init();
+        shared_ptr<Logger> logger;
 
     public:
-        Podcatcher();
-        Podcatcher(unique_ptr<Config>);
+        Podcatcher(const vector<string>&);
         ~Podcatcher();
         void setConfig(unique_ptr<Config>);
         unique_ptr<Config> getConfig();

@@ -1,30 +1,14 @@
 #include <iostream>
 #include "config.hpp"
 
-Config::Config()
+Config::Config(const vector<string>& args, shared_ptr<Logger> l)
 {
-    init(NULL);
-}
+    logger = l;
 
-Config::Config(char* argv[])
-{
-    init(argv);
-}
-
-Config::Config(const string fn)
-{
-    filename = fn;
-}
-
-void Config::init(char* argv[])
-{
-    if(argv)
+    logger->log(LogLevel::DEBUG, "Passed arguments:");
+    for(string s: args)
     {
-        filename = argv[1];
-    }
-    else
-    {
-        filename = CONFIG_FILENAME;
+        logger->log(LogLevel::DEBUG, "\t" + s);
     }
 }
 
@@ -40,4 +24,9 @@ void Config::setFilename(const string fn)
 
 Config::~Config()
 {
+    if(logger)
+    {
+        logger->log(LogLevel::DEBUG, "Unloading " + filename);
+        logger.reset();
+    }
 }

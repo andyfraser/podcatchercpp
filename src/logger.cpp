@@ -12,6 +12,7 @@ Logger::Logger(const string fn)
 
 Logger::~Logger()
 {
+    log(LogLevel::DEBUG, "Unloading logger");
 }
 
 void Logger::setLevel(const LogLevel ll)
