@@ -1,6 +1,6 @@
 #include <iostream>
-#include <fstream>
 #include "config.hpp"
+#include "general.hpp"
 
 Config::Config(const vector<string>& args, shared_ptr<Logger> l) : logger(l)
 {
@@ -19,9 +19,8 @@ Config::Config(const vector<string>& args, shared_ptr<Logger> l) : logger(l)
         if(args[i] == "-f" && (i + 1) < args.size())
         {
             ++i;
-            ifstream file(args[i]);
 
-            if(file)
+            if(Functions::Filesystem::FileExists(args[i]))
             {
                 logger->log(LogLevel::DEBUG, "        Change filename to " + args[i]);
                 filename = args[i];
