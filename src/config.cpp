@@ -2,11 +2,8 @@
 #include <fstream>
 #include "config.hpp"
 
-Config::Config(const vector<string>& args, shared_ptr<Logger> l)
+Config::Config(const vector<string>& args, shared_ptr<Logger> l) : logger(l)
 {
-
-    logger = l;
-
     logger->log(LogLevel::DEBUG, "Passed arguments:");
 
     for(size_t i = 0; i < args.size(); ++i)

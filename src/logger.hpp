@@ -9,22 +9,16 @@ enum class LogLevel {DEBUG, INFO, WARNING, ERROR, CRITICAL};
 
 class Logger
 {
-    protected:
+    public:
     #ifdef DEBUG_SETTINGS
         LogLevel level { LogLevel::DEBUG };
     #else
         LogLevel level { LogLevel::INFO };
     #endif
-        string filename { "" };
-    public:
-        Logger();
-        Logger(const string);
+        string filename;
+        Logger() : filename("") {};
+        Logger(const string fn) : filename(fn) {};
         ~Logger();
-        void setLevel(const LogLevel);
-        const LogLevel getLevel();
-        const string getLevelAsString();
-        void setFilename(const string);
-        const string getFilename();
         void log(const LogLevel, const string);
 };
 
