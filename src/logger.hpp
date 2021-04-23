@@ -1,6 +1,10 @@
 #ifndef _logger
 #define _logger
 
+#define MAX_LOG_SIZE 65536
+#define LOG_DIR "log"
+#define LOG_FILENAME "podcatcher.log"
+
 #include "exceptions.hpp"
 
 using namespace std;
@@ -16,7 +20,9 @@ class Logger
         LogLevel level { LogLevel::INFO };
     #endif
         string filename;
-        Logger() : filename("") {};
+        string directory { LOG_DIR };
+        unsigned int maxsize { MAX_LOG_SIZE };
+        Logger() : filename(LOG_FILENAME) {};
         Logger(const string fn) : filename(fn) {};
         ~Logger();
         void log(const LogLevel, const string);
