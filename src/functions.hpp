@@ -1,5 +1,5 @@
-#ifndef _GENERAL
-#define _GENERAL
+#ifndef _functions
+#define _functions
 
 #include <string>
 #include <fstream>

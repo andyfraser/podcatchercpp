@@ -1,6 +1,6 @@
 #include <iostream>
 #include "config.hpp"
-#include "general.hpp"
+#include "functions.hpp"
 
 Config::Config(const vector<string>& args, shared_ptr<Logger> l) : logger(l)
 {

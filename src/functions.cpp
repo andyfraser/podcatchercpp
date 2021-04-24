@@ -1,4 +1,4 @@
-#include "general.hpp"
+#include "functions.hpp"
 #include <iostream>
 
 namespace Functions

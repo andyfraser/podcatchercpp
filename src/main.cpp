@@ -3,7 +3,7 @@
 #include <vector>
 #include "config.hpp"
 #include "podcatcher.hpp"
-#include "general.hpp"
+#include "functions.hpp"
 
 #define RUNFILE ".podcatcher.run"
 
