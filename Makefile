@@ -7,10 +7,10 @@ SRCFILES = $(wildcard $(SRCDIR)/*.cpp)
 OBJFILES = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SRCFILES))
 
 CC = /usr/bin/g++
-CPPFLAGS = -Wall -O3
+CPPFLAGS = -Wall -O3 -std=c++17
 LDFLAGS =
 
-debug: CPPFLAGS = -Wall -g -DDEBUG_SETTINGS
+debug: CPPFLAGS = -Wall -g -std=c++17 -DDEBUG_SETTINGS
 debug: podcatcher
 
 $(EXECUTABLE): $(OBJFILES)
